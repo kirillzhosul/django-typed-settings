@@ -1,11 +1,18 @@
 from datetime import timedelta
 
-from django_typed_settings.environ import env_key_required
+from django_typed_settings.environ import env_key
+from django_typed_settings.exceptions import DjangoSettingsMissingRequiredKeyError
 
 
-def env_key_timedelta(key: str) -> timedelta:
+def env_key_timedelta(key: str, default: timedelta | str | None = None) -> timedelta:
     """WARNING. Preview function"""
-    raw_value = env_key_required(key=key, as_type=str)
+    raw_value = env_key(key=key, as_type=str)
+    if raw_value is None:
+        if isinstance(default, timedelta):
+            return default
+        if default is None:
+            raise DjangoSettingsMissingRequiredKeyError(key, as_type=timedelta)
+        raw_value = default
     base = int("".join(v for v in raw_value if v.isdigit()))
     multiplier = str(
         "".join(v for v in raw_value if not v.isdigit() and not v.isspace())

@@ -1,6 +1,6 @@
 [project]
 name = "django-typed-settings"
-version = "0.1.0"
+version = "0.1.1"
 description = "Type validation for bare django configuration settings system"
 authors = [{ name = "Kirill Zhosul", email = "<kirillzhosul@yandex.com" }]
 license = { text = "MIT" }

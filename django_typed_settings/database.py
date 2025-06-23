@@ -7,6 +7,7 @@ type KNOWN_ENGINES = Literal[
     "django.db.backends.mysql",
     "django.db.backends.sqlite3",
     "django.db.backends.oracle",
+    "django.db.backends.postgresql_psycopg2",
 ]
 
 
