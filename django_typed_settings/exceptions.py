@@ -34,14 +34,3 @@ class DjangoSettingsKeyValueError(Exception):
         super().__init__(
             f"Value error for environment key `{key}` with value `{value}` while tried to cast to `{as_type.__name__}`!"
         )
-
-
-class DjangoSettingsInvalidLoggingLevelError(Exception):
-    def __init__(
-        self,
-        key: str,
-        value: str,
-    ) -> None:
-        super().__init__(
-            f"Value error for environment key `{key}` with value `{value}` expected it to be an logging level!"
-        )

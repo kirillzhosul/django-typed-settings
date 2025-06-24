@@ -13,11 +13,14 @@ from .environ import (
 )
 from .exceptions import (
     DjangoSettingsInvalidFlagValueError,
-    DjangoSettingsInvalidLoggingLevelError,
     DjangoSettingsKeyValueError,
     DjangoSettingsMissingRequiredKeyError,
 )
-from .logging_level import env_key_logging_level
+from .logging import (
+    DjangoSettingsInvalidLoggingLevelError,
+    django_logging_configuration,
+    env_key_logging_level,
+)
 from .timedelta import env_key_timedelta
 
 __all__ = [
@@ -25,6 +28,7 @@ __all__ = [
     "DjangoSettingsMissingRequiredKeyError",
     "DjangoSettingsKeyValueError",
     "DjangoSettingsInvalidLoggingLevelError",
+    "django_logging_configuration",
     "env_key",
     "env_key_flag",
     "env_key_required",

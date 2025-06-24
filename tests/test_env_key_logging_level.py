@@ -1,9 +1,9 @@
 import pytest
 
-from django_typed_settings import env_key_logging_level
-from django_typed_settings.exceptions import (
+from django_typed_settings import (
     DjangoSettingsInvalidLoggingLevelError,
     DjangoSettingsMissingRequiredKeyError,
+    env_key_logging_level,
 )
 from tests.conftest import set_environ_key
 

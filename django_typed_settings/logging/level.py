@@ -1,29 +1,16 @@
-from typing import Literal
-
 from django_typed_settings.environ import env_key, env_key_required
-from django_typed_settings.exceptions import DjangoSettingsInvalidLoggingLevelError
 
-type LOGGING_LEVELS_T = Literal[
-    "CRITICAL", "FATAL", "ERROR", "WARN", "WARNING", "INFO", "DEBUG", "NOTSET"
-]
-LOGGING_LEVELS = (
-    "CRITICAL",
-    "FATAL",
-    "ERROR",
-    "WARN",
-    "WARNING",
-    "INFO",
-    "DEBUG",
-    "NOTSET",
-)
+from .exceptions import DjangoSettingsInvalidLoggingLevelError
+from .spec import LOGGING_LEVEL_T, LOGGING_LEVELS
 
 
 def env_key_logging_level(
     key: str,
-    default: LOGGING_LEVELS_T | None = None,
-) -> LOGGING_LEVELS_T:
+    default: LOGGING_LEVEL_T | None = None,
+) -> LOGGING_LEVEL_T:
     """
-    Return logging level key from environment variable and optional default fallback.
+    Return logging level key from environment variable and optional default fallback (or raise error).
+    No way to acquire None on missing key.
 
     :param key: Name of key to load from environment.
     :param default: Value to return when there is no such key or None if strict.
