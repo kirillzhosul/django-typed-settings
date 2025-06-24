@@ -3,6 +3,10 @@
 Type safe API for bare django configuration settings system.
 Alternative to `django-environ` and somehow `pydantic`
 
+```bash
+pip install django-typed-settings
+poetry add django-typed-settings
+```
 ## Simple example
 
 ```python
